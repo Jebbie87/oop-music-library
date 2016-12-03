@@ -10,16 +10,6 @@ class Library {
   }
 }
 
-class Track {
-  constructor(title, rating, length) {
-    this.title = title
-    this.rating = rating
-    this.length = length
-  }
-
-
-}
-
 class Playlist {
   constructor(name, tracks){
     this.name = name
@@ -29,24 +19,39 @@ class Playlist {
   addToTracks(track){
     return this.tracks.push(track)
   }
-
-
 }
-// var test = new Playlist('playlist1')
-// console.log(test.name)
-// Get user input
+
+class Track {
+  constructor(title, rating, length) {
+    this.title = title
+    this.rating = rating
+    this.length = length
+  }
+}
+
+// will make 1 new track
 const createTrack = (title, rating, length) => {
-  const testTrack = new Track(title, rating, length)
-  // playlistname.addToTracks(testTrack)
-  return testTrack
+  const newTrack = new Track(title, rating, length)
+  return newTrack
+}
+const newPlaylist = (playlistName) => {
+  return new Playlist(playlistName)
 }
 
-console.log(createTrack('track1', 2, 180).title)
-// var test = new Track('title1', 2, 180)
-// console.log(test2t.title)
-// console.log(test.rating)
-// console.log(test.length)
+const addTrackToPlaylist = (playlist, track) => {
+  return playlist.addToTracks(track)
+}
+const playlist1 = new Playlist('playlist1')
+// // console.log(playlist1.name)
+const test = createTrack('track1', 5, 180)
+const track = createTrack('track2', 4, 130)
+addTrackToPlaylist(playlist1, test)
+addTrackToPlaylist(playlist1, track)
+// console.log(playlist1.tracks)
 
+playlist1.tracks.forEach(function(track) {
+  console.log(track)
+})
 // var library = {
 //   tracks: { t01: { id: "t01",
 //                    name: "Code Monkey",
